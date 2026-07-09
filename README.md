@@ -226,6 +226,61 @@ Common use cases include:
 
 ---
 
+# Common Hash Types and Hashcat Modes
+
+| Hash Type                   | Hash Length | Hashcat Mode (`-m`) | Example                                    |
+| --------------------------- | ----------: | ------------------: | ------------------------------------------ |
+| MD5                         |          32 |                 `0` | `5f4dcc3b5aa765d61d8327deb882cf99`         |
+| MD4                         |          32 |               `900` | `a448017aaf21d8525fc10ae87aa6729d`         |
+| NTLM                        |          32 |              `1000` | `8846f7eaee8fb117ad06bdd830b7586c`         |
+| LM                          |          32 |              `3000` | `E52CAC67419A9A224A3B108F3FA6CB6D`         |
+| SHA-1                       |          40 |               `100` | `5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8` |
+| SHA-224                     |          56 |              `1300` | `d63dc919e201d7bc64...`                    |
+| SHA-256                     |          64 |              `1400` | `5e884898da28047151d0e56f8dc62927...`      |
+| SHA-384                     |          96 |             `10800` | `59e1748777448c69de6b800d7a33bbfb...`      |
+| SHA-512                     |         128 |              `1700` | `b109f3bbbc244eb82441917ed06d618b...`      |
+| bcrypt                      |          60 |              `3200` | `$2b$12$...`                               |
+| NetNTLMv1                   |      Varies |              `5500` | Challenge/Response                         |
+| NetNTLMv2                   |      Varies |              `5600` | Challenge/Response                         |
+| Kerberos 5 AS-REP           |      Varies |             `18200` | Kerberos AS-REP Hash                       |
+| Kerberos 5 TGS-REP (RC4)    |      Varies |             `13100` | Kerberos Service Ticket                    |
+| Kerberos 5 TGS-REP (AES128) |      Varies |             `19600` | AES128 Ticket                              |
+| Kerberos 5 TGS-REP (AES256) |      Varies |             `19700` | AES256 Ticket                              |
+| WPA/WPA2-PBKDF2             |      Varies |             `22000` | Wi-Fi Handshake                            |
+| ZIP (PKZIP)                 |      Varies |             `17200` | Password-Protected ZIP                     |
+| 7-Zip                       |      Varies |             `11600` | Password-Protected 7z                      |
+| RAR3                        |      Varies |             `12500` | RAR3 Archive                               |
+| RAR5                        |      Varies |             `13000` | RAR5 Archive                               |
+| PDF 1.4–1.6                 |      Varies |             `10400` | Encrypted PDF                              |
+| PDF 1.7                     |      Varies |             `10700` | Encrypted PDF                              |
+| Office 2010                 |      Varies |              `9500` | Microsoft Office Document                  |
+| Office 2013                 |      Varies |              `9600` | Microsoft Office Document                  |
+| Office 2016                 |      Varies |              `9600` | Microsoft Office Document                  |
+| VeraCrypt                   |      Varies |       `13711–13773` | Encrypted Volume                           |
+| KeePass                     |      Varies |             `13400` | KeePass Database                           |
+
+## Common Attack Modes
+
+| Attack Mode | Description               |
+| ----------- | ------------------------- |
+| `-a 0`      | Dictionary Attack         |
+| `-a 1`      | Combination Attack        |
+| `-a 3`      | Brute-Force (Mask) Attack |
+| `-a 6`      | Hybrid Wordlist + Mask    |
+| `-a 7`      | Hybrid Mask + Wordlist    |
+
+## Example
+
+```bash
+hashcat -m 1000 -a 0 hashes.txt /usr/share/wordlists/rockyou.txt
+```
+
+* `-m 1000` → NTLM
+* `-a 0` → Dictionary Attack
+* `hashes.txt` → File containing hashes
+* `rockyou.txt` → Wordlist
+
+
 # Tools Covered
 
 | Tool            | Purpose                                               |
