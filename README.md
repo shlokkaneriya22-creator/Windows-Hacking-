@@ -1,4 +1,4 @@
-# Day 8 – Windows Hacking (Authorized Security Testing)
+ Windows Hacking (Authorized Security Testing)
 
 > **Disclaimer**
 >
