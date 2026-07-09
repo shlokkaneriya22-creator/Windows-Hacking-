@@ -1,4 +1,4 @@
- Windows Hacking (Authorized Security Testing)
+#                                         Windows Hacking (Authorized Security Testing)
 
 > **Disclaimer**
 >
@@ -6,7 +6,7 @@
 
 ---
 
-# Topics Covered
+## Topics Covered
 
 * Windows User Management
 * Windows Authentication
@@ -18,7 +18,7 @@
 
 ---
 
-# Windows Authentication
+## Windows Authentication
 
 Windows primarily uses **Kerberos** for authentication in Active Directory environments.
 
@@ -30,11 +30,8 @@ Windows stores local account password hashes in the **Security Account Manager (
 * Stores password hashes (not plaintext passwords)
 * Used for local account authentication
 
-#
 
----
-
-# Change Password Using Command Prompt
+## Change Password Using Command Prompt
 
 Reset a local user's password:
 
@@ -178,10 +175,16 @@ Typical workflow:
 
 
 Crack an NTLM Hash Using a Wordlist
+
+```cmd
+
 hashcat -m 1000 -a 0 hashes.txt /usr/share/wordlists/rockyou.txt
+```
 
 Crack an LM Hash
+```cmd
 hashcat -m 3000 -a 0 hashes.txt /usr/share/wordlists/rockyou.txt
+```
 
 ---
 
@@ -267,4 +270,5 @@ By completing this lab, you should understand:
 ---
 
 **Author:** Shlok Kaneriya
+
 **Topic:** Windows Hacking Fundamentals (Authorized Security Testing)
