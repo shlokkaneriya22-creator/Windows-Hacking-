@@ -176,9 +176,10 @@ Typical workflow:
 4. Run dictionary or mask attacks.
 5. Review recovered passwords.
 
-6. 
+
 Crack an NTLM Hash Using a Wordlist
 hashcat -m 1000 -a 0 hashes.txt /usr/share/wordlists/rockyou.txt
+
 Crack an LM Hash
 hashcat -m 3000 -a 0 hashes.txt /usr/share/wordlists/rockyou.txt
 
