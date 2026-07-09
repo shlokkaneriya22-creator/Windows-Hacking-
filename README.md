@@ -114,6 +114,13 @@ This may display:
 
 WCE is a credential extraction utility capable of interacting with Windows authentication mechanisms during authorized security assessments.
 
+Display Help
+wce.exe -?
+
+or
+
+wce.exe /?
+
 ---
 
 # pwdump
@@ -169,24 +176,11 @@ Typical workflow:
 4. Run dictionary or mask attacks.
 5. Review recovered passwords.
 
----
-
-# LM and NTLM Hashes
-
-Windows historically supported two primary password hash formats.
-
-### LM (LAN Manager)
-
-* Legacy authentication
-* Weak security
-* Easily cracked
-* Disabled by default on modern Windows versions
-
-### NTLM
-
-* Successor to LM
-* Stronger than LM
-* Still commonly encountered in penetration testing
+6. 
+Crack an NTLM Hash Using a Wordlist
+hashcat -m 1000 -a 0 hashes.txt /usr/share/wordlists/rockyou.txt
+Crack an LM Hash
+hashcat -m 3000 -a 0 hashes.txt /usr/share/wordlists/rockyou.txt
 
 ---
 
