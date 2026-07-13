@@ -1,4 +1,4 @@
-#                                         Windows Hacking (Authorized Security Testing)
+#                                         W (Authorized Security Testing)
 
 > **Disclaimer**
 >
